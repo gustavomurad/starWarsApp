@@ -23,7 +23,6 @@ class StarWars extends StatefulWidget {
 }
 
 class StarWarsState extends State<StarWars> {
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -45,36 +44,36 @@ class StarWarsState extends State<StarWars> {
                                 children: <Widget>[
                                   ListTile(
                                       title: new Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: <Widget>[
-                                          new Container(
-                                            child: new Text(
-                                              snapshot.data.person[index].name,
-                                              style: TextStyle(color: Colors.black),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                            width: 150.0,
-                                          ),
-                                          //new Padding(padding: EdgeInsets.only(left: 45.0)),
-                                          new Container(
-                                            child: new Text(
-                                              snapshot.data.person[index].birthYear,
-                                              style: TextStyle(color: Colors.black),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                            width: 70.0,
-                                          ),
-                                          new Container(
-                                            child: new Text(
-                                              snapshot.data.person[index].eyeColor,
-                                              style: TextStyle(color: Colors.black),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                            width: 70.0,
-                                          ),
-                                        ],
-                                      )
-                                  ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      new Container(
+                                        child: new Text(
+                                          snapshot.data.person[index].name,
+                                          style: TextStyle(color: Colors.black),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        width: 150.0,
+                                      ),
+                                      //new Padding(padding: EdgeInsets.only(left: 45.0)),
+                                      new Container(
+                                        child: new Text(
+                                          snapshot.data.person[index].birthYear,
+                                          style: TextStyle(color: Colors.black),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        width: 70.0,
+                                      ),
+                                      new Container(
+                                        child: new Text(
+                                          snapshot.data.person[index].eyeColor,
+                                          style: TextStyle(color: Colors.black),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        width: 70.0,
+                                      ),
+                                    ],
+                                  )),
                                 ],
                               ),
                             );

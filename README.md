@@ -1,8 +1,7 @@
-# flutter_app
+Star Wars App
 
-A new Flutter application.
+Simple Star Wars API consumption app made with Flutter
 
-## Getting Started
+Star Wars API provided by https://swapi.co/
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+Enjoy!

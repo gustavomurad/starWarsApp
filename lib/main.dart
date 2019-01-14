@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'StarWarsUniverse.dart';
+import 'PersonWidget.dart';
 
 Future<StarWarsUniverse> fetchPost() async {
   final response =
@@ -32,54 +33,9 @@ class StarWarsState extends State<StarWars> {
           future: fetchPost(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              return new Column(
-                children: <Widget>[
-                  new Expanded(
-                      child: new ListView.builder(
-                          itemCount: snapshot.data.person.length,
-                          itemBuilder: (context, index) {
-                            return new Card(
-                              child: new Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  ListTile(
-                                      title: new Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      new Container(
-                                        child: new Text(
-                                          snapshot.data.person[index].name,
-                                          style: TextStyle(color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        width: 150.0,
-                                      ),
-                                      //new Padding(padding: EdgeInsets.only(left: 45.0)),
-                                      new Container(
-                                        child: new Text(
-                                          snapshot.data.person[index].birthYear,
-                                          style: TextStyle(color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        width: 70.0,
-                                      ),
-                                      new Container(
-                                        child: new Text(
-                                          snapshot.data.person[index].eyeColor,
-                                          style: TextStyle(color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        width: 70.0,
-                                      ),
-                                    ],
-                                  )),
-                                ],
-                              ),
-                            );
-                          }))
-                ],
-              );
+              return RefreshIndicator(
+                  child: PersonWidget(swu: snapshot.data),
+                  onRefresh: fetchPost);
             }
             return new Container(
               alignment: AlignmentDirectional.center,
@@ -89,6 +45,7 @@ class StarWarsState extends State<StarWars> {
     );
   }
 }
+
 
 void main() => runApp(MyApp());
 
